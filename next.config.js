@@ -6,6 +6,7 @@ const config = {
   poweredByHeader: false,
   env: {
     ...require(`./config/${ENV}.json`),
+    NEXT_PUBLIC_INFURA_ID: process.env.NEXT_PUBLIC_INFURA_ID,
   },
   compiler: {
     styledComponents: true,

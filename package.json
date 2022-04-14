@@ -17,6 +17,7 @@
     "scaffold": "scaffdog generate"
   },
   "dependencies": {
+    "@walletconnect/web3-provider": "^1.7.7",
     "axios": "0.24.0",
     "dayjs": "1.10.8",
     "firebase": "^9.6.10",
@@ -30,6 +31,7 @@
     "react-transition-group": "4.4.2",
     "styled-components": "5.3.3",
     "use-intersection": "0.2.1",
+    "web3": "^1.7.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {

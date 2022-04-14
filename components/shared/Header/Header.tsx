@@ -22,7 +22,7 @@ const Wrapper = styled.header`
 export const Header: React.VFC = () => {
   return (
     <Wrapper>
-      <h1>Header</h1>
+      <h1>Connect Wallet</h1>
     </Wrapper>
   );
 };

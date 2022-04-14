@@ -1,7 +1,6 @@
 {
-  "name": "stella-frontend",
+  "name": "connect-metamask",
   "version": "0.0.0",
-  "repository": "ssh://git@github.com/microverse-dev/stella-frontend.git",
   "private": true,
   "scripts": {
     "dev": "next",

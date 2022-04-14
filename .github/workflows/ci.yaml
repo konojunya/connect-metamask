@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]sx?') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: install deps
+        run: yarn --frozen-lockfile
+
+      - name: build
+        run: yarn build
+
+      - name: lint
+        run: yarn lint
+
+      # - name: test
+      #   run: yarn test
+
+      - name: format diff
+        run: yarn format && git diff --exit-code || exit 1
